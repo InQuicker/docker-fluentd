@@ -17,10 +17,33 @@ GEM
     cool.io (1.4.5)
     domain_name (0.5.20160826)
       unf (>= 0.0.5, < 1.0.0)
+    elasticsearch (1.0.18)
+      elasticsearch-api (= 1.0.18)
+      elasticsearch-transport (= 1.0.18)
+    elasticsearch-api (1.0.18)
+      multi_json
+    elasticsearch-transport (1.0.18)
+      faraday
+      multi_json
+    excon (0.53.0)
+    faraday (0.9.2)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware-aws-signers-v4 (0.1.1)
+      aws-sdk (~> 2.1)
+      faraday (~> 0.9)
     ffi (1.9.14)
     fluent-mixin-config-placeholders (0.4.0)
       fluentd
       uuidtools (>= 2.1.5)
+    fluent-plugin-aws-elasticsearch-service (0.1.6)
+      aws-sdk (~> 2)
+      faraday_middleware-aws-signers-v4 (>= 0.1.0, < 0.1.2)
+      fluent-plugin-elasticsearch (~> 1.0)
+      fluentd (~> 0)
+    fluent-plugin-elasticsearch (1.7.0)
+      elasticsearch (< 1.1)
+      excon
+      fluentd (>= 0.10.43)
     fluent-plugin-kubernetes_metadata_filter (0.25.3)
       fluentd (>= 0.12.0)
       kubeclient (~> 1.1.4)
@@ -67,6 +90,8 @@ GEM
     mime-types-data (3.2016.0521)
     minitest (5.9.1)
     msgpack (1.0.0)
+    multi_json (1.12.1)
+    multipart-post (2.0.0)
     netrc (0.11.0)
     recursive-open-struct (1.0.0)
     rest-client (2.0.0)
@@ -94,6 +119,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  fluent-plugin-aws-elasticsearch-service
   fluent-plugin-kubernetes_metadata_filter
   fluent-plugin-rewrite-tag-filter
   fluent-plugin-s3
